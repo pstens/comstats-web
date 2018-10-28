@@ -1,0 +1,21 @@
+{
+  "name": "comunio-scraper",
+  "version": "1.0.0",
+  "description": "Simple web scraper for comstats",
+  "main": "app.js",
+  "dependencies": {
+    "axios": "^0.18.0",
+    "cheerio": "^1.0.0-rc.2",
+    "express": "^4.16.4",
+    "nodemon": "^1.18.5",
+    "request": "^2.88.0",
+    "request-promise": "^4.2.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "echo \"Running on 3000\" && nodemon app.js"
+  },
+  "author": "Patrick Stens",
+  "license": "ISC"
+}
