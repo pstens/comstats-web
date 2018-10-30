@@ -5,10 +5,10 @@ const app = express()
 
 const url = 'https://stats.comunio.de/matchday'
 const detailUrl = 'https://stats.comunio.de/matchdetails.php?mid='
-const team = ["Neuer", "Reus", "Koch"]
+const team = ['Volland']
 
 function filterStats(stats) {
-  return stats.filter(stat => team.includes(stat.name))
+  return (team.length == 0) ? stats : stats.filter(stat => team.includes(stat.name))
 }
 
 function flatten(stats) {
