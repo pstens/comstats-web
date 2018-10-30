@@ -5,6 +5,15 @@ const app = express()
 
 const url = 'https://stats.comunio.de/matchday'
 const detailUrl = 'https://stats.comunio.de/matchdetails.php?mid='
+const team = ["Neuer", "Reus", "Koch"]
+
+function filterStats(stats) {
+  return stats.filter(stat => team.includes(stat.name))
+}
+
+function flatten(stats) {
+  return [].concat(...stats)
+}
 
 async function getGameDetails(id) {
   const response = await axios.get(detailUrl + id)
@@ -22,8 +31,9 @@ async function getStats() {
 }
 
 app.get('/', async (req, res) => {
-  const stats = await getStats()
-  res.status(200).json([].concat(...stats))
+  const stats = flatten(await getStats())
+  const filtered = filterStats(stats)
+  res.status(200).json(filtered.sort((a, b) => b.points - a.points))
 })
 
 app.listen(3000, () => {
