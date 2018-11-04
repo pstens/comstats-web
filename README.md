@@ -2,6 +2,10 @@
 Really basic nodejs app which scrapes comstats.com and display the live points of each player as JSON array.
 
 # TODO
-- [ ] Display results in html file
-- [ ] Save favorite players in cookie as "team"
-- [ ] Cache result
+- [x] Display results in html file
+- [ ] Add Search form
+- [ ] Search for player by username
+- [ ] Scrape team
+- [ ] Fetch points for scraped team
+- [ ] Display team
+- [ ] Save username in Cookie
