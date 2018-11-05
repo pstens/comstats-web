@@ -4,7 +4,10 @@ const squadStats = document.querySelector('#squadStats')
 const points = document.querySelector('#totalPoints')
 const loadingIndicator = document.querySelector('#loadingIndicator')
 
+
 searchButton.addEventListener('click', (event) => {
+    squadStats.innerHTML = ''
+    points.innerText = ''
     loadingIndicator.style.display = ''
     event.preventDefault()
     scrapeUserId(searchName.value)
@@ -26,7 +29,6 @@ function displayStatsForSquad(squad) {
   loadingIndicator.style.display = 'none'
   const totalPoints = squad.reduce((total, player) => total + player.points, 0)
   points.innerText = `Insgesamt: ${totalPoints}`
-  squadStats.innerHTML = ''
   squad.forEach(player => {
     const row = document.createElement('li')
     row.appendChild(document.createTextNode(`${player.name} • ${player.points}`))
