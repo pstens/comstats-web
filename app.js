@@ -7,7 +7,7 @@ app.use(express.static("scripts"))
 app.use(express.static("images"))
 
 const STATS_URL = 'https://stats.comunio.de/matchday'
-const DETAIL_URL = 'https://stats.comunio.de/matchdetails.php?mid='
+const DETAIL_URL = 'https://stats.comunio.de/xhr/matchdetails.php?mid='
 const COMMUNITY_URL = 'https://api.comunio.de/communities/1611599?include=standings'
 const USER_URL = 'https://api.comunio.de/users/' // userId/squad
 
