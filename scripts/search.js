@@ -31,7 +31,7 @@ function displayStatsForSquad(squad) {
   points.innerText = `Insgesamt: ${totalPoints}`
   squad.forEach(player => {
     const row = document.createElement('li')
-    row.appendChild(document.createTextNode(`${player.name} • ${player.points}`))
+    row.appendChild(document.createTextNode(`${player.name} • ${player.points} • (${player.rating})`))
     squadStats.appendChild(row)
   })
 }

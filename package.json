@@ -4,12 +4,10 @@
   "description": "Simple web scraper for comstats",
   "main": "app.js",
   "dependencies": {
-    "axios": "^0.18.0",
-    "cheerio": "^1.0.0-rc.2",
-    "express": "^4.16.4",
-    "nodemon": "^1.18.10",
-    "request": "^2.88.0",
-    "request-promise": "^4.2.4"
+    "axios": "^0.18.1",
+    "cheerio": "^1.0.0-rc.3",
+    "express": "^4.17.1",
+    "nodemon": "^1.19.4"
   },
   "devDependencies": {},
   "scripts": {
