@@ -12,8 +12,7 @@
   "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "echo \"Running on 3000\" && nodemon app.js",
-    "build": "nohup nodemon app.js </dev/null &"
+    "start": "echo \"Running on 3000\" && nodemon app.js"
   },
   "author": "Patrick Stens",
   "license": "ISC"
