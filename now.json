@@ -1,0 +1,37 @@
+{
+    "version": 2,
+    "builds": [
+        {
+            "src": "app.js",
+            "use":"@now/node-server"
+        },
+        {
+            "src": "*.html",
+            "use":"@now/static"
+        },
+        {
+            "src": "scripts/*",
+            "use":"@now/static"
+        },
+        {
+            "src": "images/*",
+            "use":"@now/static"
+        }
+    ],
+    "routes": [
+        {
+            "src": "/",
+            "dest": "app.js"
+        },
+        {
+            "src": "/search/(.*)",
+            "dest": "app.js"
+        }
+,
+        {
+            "src": "/stats/(.*)",
+            "dest": "app.js"
+        }
+
+    ]
+}
