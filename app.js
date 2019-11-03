@@ -71,6 +71,22 @@ async function getUserByName(name) {
     return user._embedded.user
 }
 
+async function getCommunityStats() {
+    const response = await axios.get(COMMUNITY_URL)
+    const name = response.data.name
+    const stats = response.data.standings.items.map(e => ({
+        id: e._embedded.user.id,
+        name: e._embedded.user.name,
+        total: e.totalPoints,
+        last: e.lastPoints,
+        live: e.livePoints,
+    }))
+    return {
+        name: name,
+        stats: stats
+    }
+}
+
 async function getSquadForUser(userId) {
     const response = await axios.get(`${USER_URL}${userId}/squad`)
     const squad = response.data.items.map(player => player.id)
@@ -78,28 +94,37 @@ async function getSquadForUser(userId) {
 }
 
 app.get('/', (req, res) => {
+    res.sendFile(__dirname + '/stats.html')
+})
+
+app.get('/search', (req, res) => {
     res.sendFile(__dirname + '/search.html')
 })
 
-app.get('/stats/:userId', async (req, res) => {
+app.get('/api/stats/:userId', async (req, res) => {
     const squad = await getSquadForUser(req.params.userId)
     const stats = await getStatsForSquad(squad)
     res.json(stats)
 })
 
-app.get('/search/:name', async (req, res) => {
+app.get('/api/search/:name', async (req, res) => {
     const user = await getUserByName(req.params.name)
     res.json(user)
 })
 
-app.get('/player/:name', async (req, res) => {
+app.get('/api/player/:name', async (req, res) => {
     const players = await getIdForPlayerName(req.params.name)
     res.json(players)
 })
 
-app.get('/stats', async (req, res) => {
+app.get('/api/stats', async (req, res) => {
     const ids = req.query.ids.split(',').map(Number)
     const stats = await getStatsForSquad(ids)
+    res.json(stats)
+})
+
+app.get('/api/comstats', async (_, res) => {
+    const stats = await getCommunityStats()
     res.json(stats)
 })
 

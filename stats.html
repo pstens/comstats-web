@@ -1,18 +1,32 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-  <meta charset="utf-8">
-  <title>Player Stats</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.css" />
+    <title>Comunio Live Points  ✨</title>
+    <style>
+    .center {
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      width: 25%;
+    }
+    .button-primary {
+      -webkit-appearance: none;
+    }
+    </style>
 </head>
 
 <body>
-  <h1>Hallo</h1>
-  <div>
-    <ul id="stats">
-    </ul>
-  </div>
-</body>
-<script src="stats.js"></script>
-
+    <h2 class="center" id="name"></h2>
+    <div class="container">
+        <img src="images/loading.gif" class="center" id="loadingIndicator"></img>
+        <ul id="comstats">
+        </ul>
+    </div>
+ </body>
+<script src="scripts/stats.js"></script>
 </html>

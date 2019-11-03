@@ -3,7 +3,7 @@
     "builds": [
         {
             "src": "app.js",
-            "use":"@now/node-server"
+            "use":"@now/node"
         },
         {
             "src": "*.html",
@@ -24,14 +24,12 @@
             "dest": "app.js"
         },
         {
-            "src": "/search/(.*)",
+            "src": "/api/(.*)",
             "dest": "app.js"
-        }
-,
+        },
         {
-            "src": "/stats/(.*)",
+            "src": "/search(.*)",
             "dest": "app.js"
         }
-
     ]
 }
